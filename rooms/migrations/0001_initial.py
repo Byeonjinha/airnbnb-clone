@@ -18,12 +18,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Room',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('name', models.CharField(max_length=140)),
                 ('description', models.TextField()),
-                ('counrty', django_countries.fields.CountryField(max_length=2)),
+                ('country', django_countries.fields.CountryField(max_length=2)),
                 ('city', models.CharField(max_length=80)),
                 ('price', models.IntegerField()),
                 ('address', models.CharField(max_length=140)),
@@ -34,7 +35,8 @@ class Migration(migrations.Migration):
                 ('check_in', models.TimeField()),
                 ('check_out', models.TimeField()),
                 ('instant_book', models.BooleanField(default=False)),
-                ('host', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('host', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'abstract': False,
