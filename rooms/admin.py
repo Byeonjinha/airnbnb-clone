@@ -52,8 +52,9 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_photos",
+        "total_rating",
     )
-    orderling = ("name", "price", "bedrooms")
+    # orderling = ("name", "price", "bedrooms")
     list_filter = (
         "instant_book",
         "host__superhost",
@@ -78,10 +79,10 @@ class RoomAdmin(admin.ModelAdmin):
     def count_photos(self, obj):
         return obj.photos.count()
 
+    count_photos.short_description = "Photo Count"
+
 
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
-
-    """ """
 
     pass
